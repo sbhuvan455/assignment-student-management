@@ -1,0 +1,16 @@
+name: student-management
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: student-management
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_students_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: student-management
+
+volumes:
+  mongo_students_data:
